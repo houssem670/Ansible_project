@@ -1,0 +1,11 @@
+- name: Installer Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Déployer la configuration Nginx
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/sites-enabled/default
+  notify: Restart Nginx

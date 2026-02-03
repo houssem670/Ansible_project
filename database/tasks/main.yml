@@ -1,0 +1,36 @@
+---
+# tasks file for database role
+
+- name: Installer MariaDB
+  apt:
+    name: mariadb-server
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Démarrer MariaDB
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+  become: yes 
+
+- name: Créer la base de données
+  community.mysql.mysql_db:
+    name: "{{ db_name }}"
+    state: present
+    login_user: root
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  become: yes
+
+- name: Créer l'utilisateur de l'application
+  community.mysql.mysql_user:
+    name: "{{ db_user }}"
+    password: "{{ db_password }}"
+    priv: "{{ db_name }}.*:ALL"
+    host: "%"
+    state: present
+    login_user: root
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+    column_case_sensitive: "false"
+  become: yes

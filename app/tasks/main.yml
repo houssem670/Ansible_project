@@ -1,0 +1,24 @@
+---
+- name: Créer le dossier de l'application
+  file:
+    path: /var/www/app
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: '0755' 
+
+- name: Copier les fichiers de l’application
+  copy:
+    src: files/
+    dest: /var/www/app/
+    owner: www-data
+    group: www-data
+    mode: '0755' 
+
+- name: Déployer config.php depuis le template
+  template:
+    src: templates/config.php.j2
+    dest: /var/www/app/config.php
+    owner: www-data
+    group: www-data
+    mode: '0640'

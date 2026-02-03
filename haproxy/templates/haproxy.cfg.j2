@@ -1,0 +1,10 @@
+frontend http-in
+    bind *:80
+    default_backend servers
+
+backend servers
+    server web1 192.168.56.105:80 check
+    server web2 192.168.56.106:80 check
+    timeout connect 5s
+    timeout client  50s
+    timeout server  50s

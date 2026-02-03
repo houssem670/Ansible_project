@@ -1,0 +1,9 @@
+---
+# defaults file for app
+php_fpm_service: "php8.3-fpm"
+db_host: database        
+db_name: myapp
+db_user: myappuser
+db_password: "{{ db_password }}"
+
+

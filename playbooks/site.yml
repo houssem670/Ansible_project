@@ -1,0 +1,7 @@
+---
+- import_playbook: test_nginx.yml
+- import_playbook: test_php.yml
+- import_playbook: test_db.yml
+- import_playbook: test_lb.yml
+- import_playbook: test_deploy.yml
+

@@ -1,0 +1,19 @@
+- name: Installer PHP et extensions
+  apt:
+    name:
+      - php{{ php_version }}-fpm
+      - php{{ php_version }}-mysql
+      - php{{ php_version }}-cli
+      - php{{ php_version }}-common
+      - php{{ php_version }}-curl
+      - php{{ php_version }}-gd
+      - php{{ php_version }}-mbstring
+      - php{{ php_version }}-xml
+    state: present
+    update_cache: yes
+
+- name: Déployer le fichier php.ini
+  template:
+    src: php.ini.j2 
+    dest: /etc/php/{{ php_version }}/fpm/php.ini
+  notify: Restart PHP-FPM 

@@ -1,0 +1,5 @@
+- name: Tester le rôle Nginx
+  hosts: webservers        
+  become: yes                
+  roles:
+    - nginx 

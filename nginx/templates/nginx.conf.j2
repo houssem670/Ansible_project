@@ -1,0 +1,13 @@
+server {
+    listen {{ nginx_port }};
+    root /var/www/app;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ { 
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php{{ php_version }}-fpm.sock;
+    }
+}

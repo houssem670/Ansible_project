@@ -32,15 +32,25 @@ L’application PHP est volontairement simple, car le but principal du projet es
 
 .
 ├── inventory
+
 ├── playbooks/
+
 ├── roles/
+
 │   ├── app/
+
 │   ├── database/
+
 │   ├── php/
+
 │   ├── nginx/
+
 │   └── haproxy/
-├── vault.yml    
+
+├── vault.yml 
+
 ├── .gitignore
+
 └── README.md
 
 ## Exécution du projet:

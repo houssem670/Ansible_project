@@ -25,7 +25,7 @@ L’application PHP est volontairement simple, car le but principal du projet es
 - Ansible Roles
 - Ansible Vault
 - PHP
-- MySQL
+- MariaDB
 - Linux (VMs)
 
 ##  Structure du projet
